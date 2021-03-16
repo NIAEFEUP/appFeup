@@ -4,7 +4,24 @@ import 'package:html/parser.dart' show parse;
 import 'package:html/dom.dart';
 import 'dart:async';
 
+/// TODO Should this doc be more descriptive or is this fine?
+/// Manages the exam parsing
+///
+/// This class `ParserExams` contains methods to enable the user to parse
+/// exams information 
 class ParserExams {
+
+  final types = {
+    'Especial de Conclusão': 'EC',
+    'Port.Est.Especiais': 'EE',
+    'Mini-testes': 'MT',
+    'Normal': 'EN',
+    'Recurso': 'ER'
+  };
+
+  /// Returns the abbreviature of the exam season.
+  ///
+  /// If this operation is unsuccessful, an '?' is returned.
   String getExamSeasonAbbr(String seasonStr) {
     final Map<String, String> examTypes = Exam.getExamTypes();
     for (String type in examTypes.keys) {
@@ -13,6 +30,11 @@ class ParserExams {
     return '?';
   }
 
+  /// Returns a list which contains elements of the class [Exam].
+  ///
+  /// This function parses the exams info and, when 
+  /// an exam is found, an object of the class [Exam]
+  /// is created and added to `examsList`.
   Future<List<Exam>> parseExams(http.Response response) async {
     final document = parse(response.body);
 
