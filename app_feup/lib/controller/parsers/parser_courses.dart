@@ -12,7 +12,7 @@ import 'dart:collection';
 Future<Map<String, String>> parseCourses(http.Response response) async {
   final document = parse(response.body);
 
-  final Map<String, String> coursesStates = HashMap();
+  final Map<String, String> coursesStates =  HashMap();
 
   final courses =
       document.querySelectorAll('.estudantes-caixa-lista-cursos > div');
@@ -24,5 +24,6 @@ Future<Map<String, String>> parseCourses(http.Response response) async {
 
     coursesStates.putIfAbsent(course, () => state);
   }
+
   return coursesStates;
 }
