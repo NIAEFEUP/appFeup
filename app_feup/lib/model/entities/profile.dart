@@ -4,9 +4,7 @@ import 'package:tuple/tuple.dart';
 
 import 'course.dart';
 
-/// Manages a generic User Profile.
-///
-/// This class stores all the information about a User Profile.
+/// Stores information about the user's profile.
 class Profile {
   final String name;
   final String email;

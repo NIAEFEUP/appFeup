@@ -2,10 +2,9 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:uni/controller/networking/network_router.dart';
 
-/// Manages a generic User Session.
-///
-/// This class stores all the information about a User Session.
+/// Stores information about a user session.
 class Session {
+  /// Whether or not the user is authenticated.
   bool authenticated;
   bool persistentSession = false;
   String faculty = 'feup'; // should not be hardcoded
@@ -20,11 +19,8 @@ class Session {
       this.type,
       this.cookies}) {}
 
-  //Todo Is this descriptive enough?
-  /// Returns an instance of ["Session"].
-  /// 
-  /// If the user is not authenticated returns an instance with `authenticated`
-  /// set to false.
+  // TODO: Is this descriptive enough?
+  /// Extracts a [Session] from an HTTP response.
   static Session fromLogin(dynamic response) {
     final responseBody = json.decode(response.body);
     if (responseBody['authenticated']) {

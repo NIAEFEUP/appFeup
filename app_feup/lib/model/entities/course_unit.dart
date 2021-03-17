@@ -1,6 +1,4 @@
-/// Manages a generic Course Unit.
-///
-/// This class stores all the information about a Course Unit.
+/// Stores information about a course unit.
 class CourseUnit {
   int id;
   String code;

@@ -1,5 +1,8 @@
 import 'package:logger/logger.dart';
 
+// TODO: this sounds weird.
+/// Maps the name of the years of the month to their corresponding numerical
+/// value.
 var months = {
   'Janeiro': '01',
   'Fevereiro': '02',
@@ -39,7 +42,6 @@ class Exam {
   String year;
   DateTime date;
 
-  /// Constructs an instance of the class [Exam].
   Exam.secConstructor(String subject, String begin, String end, String rooms,
       String day, String examType, String weekDay, String month, String year) {
     this.subject = subject;
@@ -56,7 +58,6 @@ class Exam {
     this.date = DateTime.parse(year + '-' + monthKey + '-' + day);
   }
 
-  /// Creates an instance of the class [Exam].
   Exam(String schedule, String subject, String rooms, String date,
       String examType, String weekDay) {
     this.subject = subject;
@@ -75,7 +76,7 @@ class Exam {
         .firstWhere((k) => months[k] == dateSepared[1], orElse: () => null);
   }
 
-  /// Converts a [Exam] instance to map.
+  /// Converts this exam to a map.
   Map<String, dynamic> toMap() {
     return {
       'subject': subject,
@@ -90,10 +91,7 @@ class Exam {
     };
   }
 
-  /// Returns a bool to sign if the Exam time has already passed.
-  /// 
-  /// This function returns `true` if the exam has already ended
-  /// and `false` if it has not.  
+  /// Returns whether or not this exam has already ended.
   bool hasEnded() {
     final DateTime now = DateTime.now();
     final int endHour = int.parse(end.split(':')[0]);
@@ -103,6 +101,7 @@ class Exam {
     return now.compareTo(endDateTime) <= 0;
   }
 
+  /// Prints the data in this exam to the [Logger] with an INFO level.
   void printExam() {
     Logger().i(
         '''$subject - $year - $month - $day -  $begin-$end - $examType - $rooms - $weekDay''');

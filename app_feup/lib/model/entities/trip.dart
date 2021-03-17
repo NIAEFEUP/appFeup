@@ -1,8 +1,6 @@
 import 'package:logger/logger.dart';
 
-/// Manages a generic Bus Trip.
-///
-/// This class stores all the information about a Bus Trip.
+/// Stores information about a bus trip.
 class Trip{
   final String line;
   final String destination;
@@ -10,7 +8,7 @@ class Trip{
 
   Trip({this.line, this.destination, this.timeRemaining});
 
-  /// Converts a [Trip] instance to map.
+  /// Converts this trip to a map.
   Map<String, dynamic> toMap() {
     return {
       'line': line,
@@ -19,7 +17,7 @@ class Trip{
     };
   }
 
-  /// Displays the trip information (the line, destination and time remaining).
+  /// Prints the data in this trip to the [Logger] with an INFO level.
   void printTrip()
   {
     Logger().i('$line ($destination) - $timeRemaining');

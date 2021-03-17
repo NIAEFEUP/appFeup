@@ -1,6 +1,4 @@
-/// Manages a generic Course.
-///
-/// This class stores all the information about a Course.
+/// Stores information about a course.
 class Course {
   final int id;
   final int festId;
@@ -29,7 +27,7 @@ class Course {
         firstEnrollment: data['fest_a_lect_1_insc']);
   }
 
-  /// Converts a [Course] instance to map.
+  /// Converts this course to a map.
   Map<String, dynamic> toMap() {
     return {
       'id': id,

@@ -1,6 +1,4 @@
-/// Manages the bus stops data.
-///
-/// An object of this class stores information about the favourited bus stops.
+/// Stores information about a bus stop.
 class BusStopData{
   final Set<String> configuredBuses;
   bool favorited;
