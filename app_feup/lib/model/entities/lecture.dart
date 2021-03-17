@@ -1,6 +1,9 @@
 import 'package:flutter/rendering.dart';
 import 'package:logger/logger.dart';
 
+/// Manages a generic Lecture.
+///
+/// This class stores all the information about a Lecture.
 class Lecture {
   static var dayName = [
     'Segunda-feira',
@@ -22,6 +25,7 @@ class Lecture {
   int blocks;
   int startTimeSeconds;
 
+  /// Creates an instance of the class [Lecture].
   Lecture(
       String subject,
       String typeClass,
@@ -97,6 +101,7 @@ class Lecture {
         startTimeHours, startTimeMinutes, endTimeHours, endTimeMinutes);
   }
 
+  /// Clones an instance of [Lecture].
   static Lecture clone(Lecture lec) {
     return Lecture.fromApi(
         lec.subject,
@@ -109,11 +114,13 @@ class Lecture {
         lec.classNumber);
   }
 
+  /// Clones an instance of [Lecture].
   static Lecture cloneHtml(Lecture lec) {
     return Lecture.fromHtml(lec.subject, lec.typeClass, lec.day, lec.startTime,
         lec.blocks, lec.room, lec.teacher, lec.classNumber);
   }
 
+  /// Converts a [Lecture] instance to map.
   Map<String, dynamic> toMap() {
     return {
       'subject': subject,
@@ -127,6 +134,7 @@ class Lecture {
     };
   }
 
+  /// Displays an instance of [Lecture] to the user.
   printLecture() {
     Logger().i(subject + ' ' + typeClass);
     Logger().i(dayName[day] +
@@ -140,6 +148,10 @@ class Lecture {
     Logger().i(room + '  ' + teacher + '\n');
   }
 
+  /// Compares the times of two different instances of [Lecture].
+  /// 
+  /// If the lectures are going to happen in the same day, compares the start
+  /// times. If they aren't compares the days.
   int compare(Lecture other) {
     if (day == other.day) {
       return startTime.compareTo(other.startTime);

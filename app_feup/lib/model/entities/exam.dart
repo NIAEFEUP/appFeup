@@ -24,6 +24,9 @@ var _types = {
   'Exames ao abrigo de estatutos especiais': 'EAE'
 };
 
+/// Manages a generic Exam.
+///
+/// This class stores all the information about an Exam.
 class Exam {
   String subject;
   String begin;
@@ -36,6 +39,7 @@ class Exam {
   String year;
   DateTime date;
 
+  /// Constructs an instance of the class [Exam].
   Exam.secConstructor(String subject, String begin, String end, String rooms,
       String day, String examType, String weekDay, String month, String year) {
     this.subject = subject;
@@ -52,6 +56,7 @@ class Exam {
     this.date = DateTime.parse(year + '-' + monthKey + '-' + day);
   }
 
+  /// Creates an instance of the class [Exam].
   Exam(String schedule, String subject, String rooms, String date,
       String examType, String weekDay) {
     this.subject = subject;
@@ -70,6 +75,7 @@ class Exam {
         .firstWhere((k) => months[k] == dateSepared[1], orElse: () => null);
   }
 
+  /// Converts a [Exam] instance to map.
   Map<String, dynamic> toMap() {
     return {
       'subject': subject,
@@ -84,6 +90,10 @@ class Exam {
     };
   }
 
+  /// Returns a bool to sign if the Exam time has already passed.
+  /// 
+  /// This function returns `true` if the exam has already ended
+  /// and `false` if it has not.  
   bool hasEnded() {
     final DateTime now = DateTime.now();
     final int endHour = int.parse(end.split(':')[0]);

@@ -1,3 +1,6 @@
+/// Manages a generic Course.
+///
+/// This class stores all the information about a Course.
 class Course {
   final int id;
   final int festId;
@@ -16,6 +19,7 @@ class Course {
       int this.firstEnrollment,
       String this.state = ''});
 
+  /// Returns an instance of this Course from a json file.
   static Course fromJson(dynamic data) {
     return Course(
         id: data['cur_id'],
@@ -25,6 +29,7 @@ class Course {
         firstEnrollment: data['fest_a_lect_1_insc']);
   }
 
+  /// Converts a [Course] instance to map.
   Map<String, dynamic> toMap() {
     return {
       'id': id,

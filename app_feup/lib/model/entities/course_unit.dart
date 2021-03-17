@@ -1,3 +1,6 @@
+/// Manages a generic Course Unit.
+///
+/// This class stores all the information about a Course Unit.
 class CourseUnit {
   int id;
   String code;
@@ -29,6 +32,7 @@ class CourseUnit {
   this.result,
   this.ects});
 
+  /// Returns an instance of this Course Unit from a json file.
   static CourseUnit fromJson(dynamic data) {
     return CourseUnit(
       id: data['ucurr_id'],
