@@ -18,6 +18,7 @@ class ParserExams {
     'Recurso': 'ER'
   };
 
+
   /// Returns the abbreviature of the exam season.
   ///
   /// If an abbreviature doesn't exist, an '?' is returned.
