@@ -7,6 +7,7 @@ import 'app_database.dart';
 /// Manages the app's Courses database.
 /// 
 /// This database stores information about the user's courses.
+/// See the [Course] class to see what data is stored in this database.
 class AppCoursesDatabase extends AppDatabase {
   AppCoursesDatabase()
       : super('courses.db', [
@@ -20,7 +21,7 @@ class AppCoursesDatabase extends AppDatabase {
     await _insertCourses(courses);
   }
 
-  /// Returns a list containing all of the data available in this database.
+  /// Returns a list containing all of the courses stored in this database.
   Future<List<Course>> courses() async {
     // Get a reference to the database
     final Database db = await this.getDatabase();
@@ -54,7 +55,7 @@ class AppCoursesDatabase extends AppDatabase {
     }
   }
 
-  /// Deletes all data from this database.
+  /// Deletes all of the data stored in this database.
   Future<void> deleteCourses() async {
     // Get a reference to the database
     final Database db = await this.getDatabase();

@@ -16,10 +16,10 @@ class AppBusStopDatabase extends AppDatabase {
           'CREATE TABLE favoritestops(stopCode TEXT, favorited TEXT)'
         ]);
 
-  /// Returns a map containing all the data available in this database.
+  /// Returns a map containing all the data stored in this database.
   /// 
   /// *Note:*
-  /// * a key in this map is a bus stop's `stopCode`.
+  /// * a key in this map is a bus stop's stop code.
   /// * a value in this map is the corresponding [BusStopData] instance.
   Future<Map<String, BusStopData>> busStops() async {
     // Get a reference to the database
@@ -89,7 +89,7 @@ class AppBusStopDatabase extends AppDatabase {
   }
 
   // TODO Should this doc be more specific or is this fine?
-  /// Deletes all data from this database.
+  /// Deletes all of the data from this database.
   Future<void> deleteBusStops() async {
     // Get a reference to the database
     final Database db = await this.getDatabase();

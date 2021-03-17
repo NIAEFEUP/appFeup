@@ -5,12 +5,20 @@ import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:synchronized/synchronized.dart';
 
+/// Manages a generic database.
+///
+/// This class is the foundation of all other database managers.
 class AppDatabase {
+  /// An instance of this database.
   Database _db;
+  /// The name of this database.
   String name;
+  /// A list of commands to be executed upon initialization.
   List<String> commands;
   static Lock lock = Lock();
+  /// A function that is called when the version changes.
   final OnDatabaseVersionChangeFn onUpgrade;
+  /// The version of this database.
   final int version;
 
   AppDatabase(String name, List<String> commands,
@@ -19,11 +27,13 @@ class AppDatabase {
     this.commands = commands;
   }
 
+  /// Returns an instance of this database.
   Future<Database> getDatabase() async {
     if (_db == null) _db = await initializeDatabase();
     return _db;
   }
 
+  /// Inserts [values] into the table named [table] in this database.
   insertInDatabase(String table, Map<String, dynamic> values,
       {String nullColumnHack, ConflictAlgorithm conflictAlgorithm}) async {
     lock.synchronized(() async {
@@ -34,6 +44,7 @@ class AppDatabase {
     });
   }
 
+  /// Initializes this database.
   Future<Database> initializeDatabase() async {
     // Get the directory path for both Android and iOS to store database
     final String directory = await getDatabasesPath();
@@ -45,12 +56,14 @@ class AppDatabase {
     return appFeupDatabase;
   }
 
+  /// Executes the commands present in [commands].
   void _createDatabase(Database db, int newVersion) async {
     for (String command in commands) {
       await db.execute(command);
     }
   }
 
+  /// Removes the database called [name].
   static removeDatabase(String name) async {
     final Directory directory = await getApplicationDocumentsDirectory();
     final String path = directory.path + name;
