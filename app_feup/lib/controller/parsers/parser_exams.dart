@@ -4,7 +4,6 @@ import 'package:html/parser.dart' show parse;
 import 'package:html/dom.dart';
 import 'dart:async';
 
-// TODO Should this doc be more descriptive or is this fine?
 /// Manages the exam parsing
 ///
 /// This class `ParserExams` contains methods to enable the user to parse

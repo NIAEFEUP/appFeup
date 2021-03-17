@@ -3,12 +3,11 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:collection';
 
-/// Returns a map containing the name of the course
-/// and the year of the first enrollment.
+/// Extracts a map containing information about the user's courses from an HTTP response.
 ///
 /// *Note:*
-/// * a key in this map is the name of the course `course`.
-/// * a value in this map is the year of enrollment `state`.
+/// * a key in this map is the name of a course
+/// * a value in this map is the status of the corresponding course
 Future<Map<String, String>> parseCourses(http.Response response) async {
   final document = parse(response.body);
 
