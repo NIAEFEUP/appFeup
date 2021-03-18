@@ -17,7 +17,7 @@ class Course {
       int this.firstEnrollment,
       String this.state = ''});
 
-  /// Returns an instance of this Course from a json file.
+  /// Creates a new instance from a JSON object.
   static Course fromJson(dynamic data) {
     return Course(
         id: data['cur_id'],

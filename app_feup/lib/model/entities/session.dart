@@ -20,7 +20,7 @@ class Session {
       this.cookies}) {}
 
   // TODO: Is this descriptive enough?
-  /// Extracts a [Session] from an HTTP response.
+  /// Creates a new instance from an HTTP response containing a JSON document.
   static Session fromLogin(dynamic response) {
     final responseBody = json.decode(response.body);
     if (responseBody['authenticated']) {

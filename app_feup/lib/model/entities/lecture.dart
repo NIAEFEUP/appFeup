@@ -99,7 +99,7 @@ class Lecture {
         startTimeHours, startTimeMinutes, endTimeHours, endTimeMinutes);
   }
 
-  /// Clones a [Lecture].
+  /// Clones a lecture.
   static Lecture clone(Lecture lec) {
     return Lecture.fromApi(
         lec.subject,
@@ -113,7 +113,7 @@ class Lecture {
   }
 
   // TODO: wtf does cloneHtml even mean?
-  /// Clones a [Lecture].
+  /// Clones a lecture.
   static Lecture cloneHtml(Lecture lec) {
     return Lecture.fromHtml(lec.subject, lec.typeClass, lec.day, lec.startTime,
         lec.blocks, lec.room, lec.teacher, lec.classNumber);

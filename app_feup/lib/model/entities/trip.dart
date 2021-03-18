@@ -23,7 +23,7 @@ class Trip{
     Logger().i('$line ($destination) - $timeRemaining');
   }
 
-  /// Compares the remaining time of two [Trip] instances.
+  /// Compares the remaining time of two trips.
   int compare(Trip other) {
     return (timeRemaining.compareTo(other.timeRemaining));
   }

@@ -30,7 +30,7 @@ class CourseUnit {
   this.result,
   this.ects});
 
-  /// Returns an instance of this Course Unit from a json file.
+  /// Creates a new instance from a JSON object.
   static CourseUnit fromJson(dynamic data) {
     return CourseUnit(
       id: data['ucurr_id'],
