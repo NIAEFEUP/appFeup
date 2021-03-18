@@ -3,7 +3,8 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:collection';
 
-/// Extracts a map containing information about the user's courses from an HTTP response.
+/// Extracts a map containing information about the user's courses from an HTTP
+/// response.
 ///
 /// *Note:*
 /// * a key in this map is the name of a course
