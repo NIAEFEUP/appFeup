@@ -2,11 +2,20 @@ import 'dart:async';
 import 'package:sqflite/sqflite.dart';
 import 'package:uni/controller/local_storage/app_database.dart';
 
+/// Manages the app's Refresh Times database.
+/// 
+/// This database stores information about when certain data was updated
+/// for the last time. 
 class AppRefreshTimesDatabase extends AppDatabase {
   AppRefreshTimesDatabase()
       : super('refreshtimes.db',
             ['CREATE TABLE refreshtimes(event TEXT, time TEXT)']);
 
+  /// Returns a map containing all the data stored in this database.
+  /// 
+  /// *Note:*
+  /// * a key in this map is the type of data that was updated.
+  /// * a value in this map is the time the corresponding last update occured.
   Future<Map<String, String>> refreshTimes() async {
     final Database db = await this.getDatabase();
     final List<Map<String, dynamic>> maps = await db.query('refreshtimes');
@@ -20,6 +29,8 @@ class AppRefreshTimesDatabase extends AppDatabase {
     return refreshTimes;
   }
 
+  // TODO Should this doc be more specific or is this fine?
+  /// Deletes all of the data from this database.
   Future<void> deleteRefreshTimes() async {
     // Get a reference to the database
     final Database db = await this.getDatabase();
@@ -27,6 +38,7 @@ class AppRefreshTimesDatabase extends AppDatabase {
     await db.delete('refreshtimes');
   }
 
+  /// Updates the time stored for a given event.
   void saveRefreshTime(String event, String time) async {
     final Database db = await this.getDatabase();
 
