@@ -23,6 +23,7 @@ import 'package:uni/view/theme.dart';
 import 'controller/on_start_up.dart';
 import 'model/schedule_page_model.dart';
 
+/// Stores the state of the app
 final Store<AppState> state = Store<AppState>(appReducers,
     /* Function defined in the reducers file */
     initialState: AppState(null),
@@ -33,6 +34,10 @@ void main() {
   runApp(MyApp());
 }
 
+/// Manages the state of the app
+/// 
+/// This class is necessary to track the app's state for
+/// the current execution
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -44,6 +49,7 @@ class MyApp extends StatefulWidget {
   }
 }
 
+/// Manages the app depending on its current state
 class MyAppState extends State<MyApp> {
   MyAppState({@required this.state}) {}
 
