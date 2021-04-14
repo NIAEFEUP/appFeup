@@ -4,6 +4,8 @@ import 'package:uni/model/app_state.dart';
 
 import 'generic_card.dart';
 
+/// Manages the 'Current account' section inside the user's page (accessible
+/// through the top-right widget with the user picture)
 class AccountInfoCard extends GenericCard {
   AccountInfoCard({Key key}) : super(key: key);
 

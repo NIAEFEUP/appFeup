@@ -11,7 +11,7 @@ import 'package:uni/model/profile_page_model.dart';
 import 'package:uni/view/Widgets/navigation_drawer.dart';
 import 'package:uni/utils/constants.dart' as Constants;
 
-/// Manages the  section inside the user's personal area
+/// Manages the  section inside the user's personal area.
 abstract class GeneralPageViewState extends State<StatefulWidget> {
   final double borderMargin = 18.0;
   static FileImage decorageImage;
@@ -25,9 +25,9 @@ abstract class GeneralPageViewState extends State<StatefulWidget> {
     return Container();
   }
 
-  /// Returns the current user image
+  /// Returns the current user image.
   /// 
-  /// If the image is not found / doesn't exist returns a generic placeholder
+  /// If the image is not found / doesn't exist returns a generic placeholder.
   DecorationImage getDecorageImage(File x) {
     final fallbackImage = decorageImage == null
         ? AssetImage('assets/images/profile_placeholder.png')
@@ -70,10 +70,10 @@ abstract class GeneralPageViewState extends State<StatefulWidget> {
     );
   }
 
-  /// Builds the upper bar of the app
+  /// Builds the upper bar of the app.
   /// 
   /// This method returns an instance of `AppBar` containing the app's logo,
-  /// an option button and a button with the user's picture
+  /// an option button and a button with the user's picture.
   AppBar buildAppBar(BuildContext context) {
     final MediaQueryData queryData = MediaQuery.of(context);
 
@@ -113,7 +113,7 @@ abstract class GeneralPageViewState extends State<StatefulWidget> {
     );
   }
 
-  // Gets a round shapped button with the photo of the current user
+  // Gets a round shaped button with the photo of the current user.
   Widget getTopRightButton(BuildContext context) {
     return FutureBuilder(
         future: buildDecorageImage(context),

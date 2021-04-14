@@ -46,7 +46,7 @@ class SchedulePageView extends StatelessWidget {
     ]);
   }
 
-  /// Returns a list of widgets empty with tabs for each day of the week
+  /// Returns a list of widgets empty with tabs for each day of the week.
   List<Widget> createTabs(queryData, BuildContext context) {
     final List<Widget> tabs = <Widget>[];
     for (var i = 0; i < daysOfTheWeek.length; i++) {
@@ -67,7 +67,7 @@ class SchedulePageView extends StatelessWidget {
     return tabBarViewContent;
   }
 
-  /// Returns a list of widgets for the rows with a singular class info
+  /// Returns a list of widgets for the rows with a singular class info.
   List<Widget> createScheduleRows(lectures, BuildContext context) {
     final List<Widget> scheduleContent = <Widget>[];
     for (int i = 0; i < lectures.length; i++) {

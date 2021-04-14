@@ -2,6 +2,8 @@ import 'package:uni/model/entities/course.dart';
 import 'package:flutter/material.dart';
 import 'package:uni/view/Widgets/generic_card.dart';
 
+/// Manages the courses info (course name, atual year, state and year of
+/// first enrolment) on the user personal page.
 class CourseInfoCard extends GenericCard {
   CourseInfoCard({Key key, this.course, this.courseState});
 

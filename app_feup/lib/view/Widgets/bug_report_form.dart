@@ -18,6 +18,7 @@ class BugReportForm extends StatefulWidget {
   }
 }
 
+/// Manages the 'Bugs and Suggestions' section of the app
 class BugReportFormState extends State<BugReportForm> {
   final String _postUrl =
       'https://api.github.com/repos/NIAEFEUP/project-schrodinger/issues';
@@ -93,6 +94,7 @@ class BugReportFormState extends State<BugReportForm> {
     return formWidget;
   }
 
+  /// Returns a widget for the title of the bug report form
   Widget bugReportTitle(BuildContext context) {
     return Container(
         alignment: Alignment.center,
@@ -113,6 +115,7 @@ class BugReportFormState extends State<BugReportForm> {
         ));
   }
 
+  /// Returns a widget for the overview text of the bug report form
   Widget bugReportIntro(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -128,6 +131,8 @@ class BugReportFormState extends State<BugReportForm> {
     );
   }
 
+  /// Returns a widget for the dropdown displayed when the user tries to choose
+  /// the type of bug on the form
   Widget dropdownBugSelectWidget(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(bottom: 30, top: 20),
@@ -164,6 +169,7 @@ class BugReportFormState extends State<BugReportForm> {
     );
   }
 
+  /// Returns a widget for the button to send the bug report
   Widget submitButton(BuildContext context) {
     return Container(
       child: ElevatedButton(
@@ -177,6 +183,9 @@ class BugReportFormState extends State<BugReportForm> {
     );
   }
 
+  /// Submits the user's bug report
+  ///
+  /// If unsuccessful, the user receives an error message
   void submitBugReport() {
     setState(() {
       _isButtonTapped = true;

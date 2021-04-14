@@ -14,7 +14,7 @@ class ExamsPageView extends StatefulWidget {
   State<StatefulWidget> createState() => ExamsPageViewState();
 }
 
-/// Tracks the state of `ExamsLists`
+/// Tracks the state of `ExamsLists`.
 class ExamsPageViewState extends SecondaryPageViewState {
   final double borderRadius = 10.0;
 
@@ -37,7 +37,7 @@ class ExamsPageViewState extends SecondaryPageViewState {
   }
 }
 
-/// Manages the 'Exams' section in the user's personal area and 'Exams Map' 
+/// Manages the 'Exams' section in the user's personal area and 'Exams Map'.
 class ExamsList extends StatelessWidget {
   final List<Exam> exams;
 
@@ -56,7 +56,7 @@ class ExamsList extends StatelessWidget {
     );
   }
 
-  /// Creates a column with all the user's exams
+  /// Creates a column with all the user's exams.
   List<Widget> createExamsColumn(context, exams) {
     final List<Widget> columns = <Widget>[];
     columns.add(ExamPageTitleFilter(

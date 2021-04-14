@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+/// Manages the sections of the app which display the current date.
+///
+/// Example: The rectangular section with the text "last update at [time]".
 class DateRectangle extends StatelessWidget {
 
   final String date;

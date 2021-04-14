@@ -20,7 +20,7 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-/// Manages the splash screen displayed after a successful login
+/// Manages the splash screen displayed after a successful login.
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void didChangeDependencies() {
@@ -67,7 +67,7 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-  /// Creates the app Title container with the app's logo
+  /// Creates the app Title container with the app's logo.
   Widget createTitle() {
     return ConstrainedBox(
         constraints: BoxConstraints(
@@ -91,7 +91,7 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-  // Redirects the user to the proper page depending on his login input
+  // Redirects the user to the proper page depending on his login input.
   void startTimeAndChangeRoute() async {
     Route<Object> nextRoute;
     final Tuple2<String, String> userPersistentInfo =

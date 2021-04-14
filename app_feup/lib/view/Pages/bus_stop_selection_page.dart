@@ -14,7 +14,7 @@ class BusStopSelectionPage extends StatefulWidget {
   State<StatefulWidget> createState() => BusStopSelectionPageState();
 }
 
-/// Manages the 'Bus stops' section of the app
+/// Manages the 'Bus stops' section of the app.
 class BusStopSelectionPageState extends UnnamedPageView {
   final double borderRadius = 15.0;
   final DateTime now = DateTime.now();

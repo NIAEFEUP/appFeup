@@ -14,6 +14,7 @@ import 'package:uni/view/Widgets/schedule_row.dart';
 
 import 'generic_card.dart';
 
+/// Manages the exam card section inside the personal area.
 class ExamCard extends GenericCard {
   ExamCard({Key key}) : super(key: key);
 
@@ -27,6 +28,10 @@ class ExamCard extends GenericCard {
   onClick(BuildContext context) =>
       Navigator.pushNamed(context, '/' + Constants.navExams);
 
+  /// Returns a widget with all the exams card content.
+  ///
+  /// If there are no exams, a message telling the user
+  /// that no exams exist is displayed.
   @override
   Widget buildCardContent(BuildContext context) {
     return StoreConnector<AppState, Tuple2<List<Exam>, RequestStatus>>(
@@ -54,6 +59,7 @@ class ExamCard extends GenericCard {
     );
   }
 
+  /// Returns a widget with all the exams.
   Widget generateExams(exams, context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -61,6 +67,8 @@ class ExamCard extends GenericCard {
     );
   }
 
+  /// Returns a list of widgets with the primary and secondary exams to
+  /// be displayed in the exam card.
   List<Widget> getExamRows(context, exams) {
     final List<Widget> rows = <Widget>[];
     for (int i = 0; i < 1 && i < exams.length; i++) {
@@ -81,6 +89,8 @@ class ExamCard extends GenericCard {
     return rows;
   }
 
+  /// Creates a row with the closest exam (which appears separated from the
+  /// others in the card).
   Widget createRowFromExam(context, Exam exam) {
     return Column(children: [
       DateRectangle(date: exam.weekDay + ', ' + exam.day + ' de ' + exam.month),
@@ -101,6 +111,8 @@ class ExamCard extends GenericCard {
     ]);
   }
 
+  /// Creates a row for the exams which will be displayed under the closest
+  /// date exam with a separator between them.
   Widget createSecondaryRowFromExam(context, exam) {
     return Container(
       margin: EdgeInsets.only(top: 8),

@@ -11,6 +11,8 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:uni/redux/action_creators.dart';
 import 'package:uni/view/Widgets/buses_form.dart';
 
+/// Manages the section of the app displayed when the
+/// user searches for a bus stop
 class BusStopSearch extends SearchDelegate<String> {
   List<String> suggestionsList = [];
   AppBusStopDatabase db;
@@ -57,6 +59,7 @@ class BusStopSearch extends SearchDelegate<String> {
     this.stopData = stopData;
   }
 
+  /// Returns a widget for the list of search suggestions displayed to  the user
   Widget getSuggestionList(BuildContext context) {
     if (this.suggestionsList.isEmpty) return ListView();
     return ListView.builder(
@@ -103,6 +106,10 @@ class BusStopSearch extends SearchDelegate<String> {
         ]);
   }
 
+  /// Returns a widget for the suggestions list displayed to the user.
+  ///
+  /// If the suggestions list is empty a text warning about no results found
+  /// is displayed.
   @override
   Widget buildSuggestions(BuildContext context) {
     return FutureBuilder(
