@@ -134,8 +134,7 @@ class AppSharedPreferences {
       return Map.fromIterable(defaultFilteredExamTypes, value: (type) => true);
     }
     return Map.fromIterable(defaultFilteredExamTypes,
-        value: (type) => storedF
-ilteredExamTypes.contains(type));
+        value: (type) => storedFilteredExamTypes.contains(type));
   }
 
   /// Encrypts [plainText] and returns its Base64 representation.
