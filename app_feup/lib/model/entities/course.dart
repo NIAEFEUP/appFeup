@@ -1,3 +1,4 @@
+/// Stores information about a course.
 class Course {
   final int id;
   final int festId;
@@ -16,6 +17,7 @@ class Course {
       int this.firstEnrollment,
       String this.state = ''});
 
+  /// Creates a new instance from a JSON object.
   static Course fromJson(dynamic data) {
     return Course(
         id: data['cur_id'],
@@ -25,6 +27,7 @@ class Course {
         firstEnrollment: data['fest_a_lect_1_insc']);
   }
 
+  /// Converts this course to a map.
   Map<String, dynamic> toMap() {
     return {
       'id': id,

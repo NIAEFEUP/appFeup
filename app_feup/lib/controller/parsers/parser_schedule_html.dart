@@ -5,6 +5,9 @@ import 'package:html/parser.dart' show parse;
 import 'package:html/dom.dart';
 import 'package:uni/model/entities/lecture.dart';
 
+/// Returns a sorted list of exams from an HTTP response.
+/// 
+/// This function parses the webpage html and returns a list of exams
 Future<List<Lecture>> getScheduleFromHtml(http.Response response) async {
   final document = parse(response.body);
   var semana = [0, 0, 0, 0, 0, 0];

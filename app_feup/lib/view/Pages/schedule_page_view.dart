@@ -5,6 +5,7 @@ import 'package:uni/view/Widgets/page_title.dart';
 import 'package:uni/view/Widgets/request_dependent_widget_builder.dart';
 import 'package:uni/view/Widgets/schedule_slot.dart';
 
+/// Manages the 'schedule' sections of the app
 class SchedulePageView extends StatelessWidget {
   SchedulePageView(
       {Key key,
@@ -45,6 +46,7 @@ class SchedulePageView extends StatelessWidget {
     ]);
   }
 
+  /// Returns a list of widgets empty with tabs for each day of the week.
   List<Widget> createTabs(queryData, BuildContext context) {
     final List<Widget> tabs = <Widget>[];
     for (var i = 0; i < daysOfTheWeek.length; i++) {
@@ -65,6 +67,7 @@ class SchedulePageView extends StatelessWidget {
     return tabBarViewContent;
   }
 
+  /// Returns a list of widgets for the rows with a singular class info.
   List<Widget> createScheduleRows(lectures, BuildContext context) {
     final List<Widget> scheduleContent = <Widget>[];
     for (int i = 0; i < lectures.length; i++) {

@@ -4,6 +4,9 @@ import 'package:crypto/crypto.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:uni/controller/local_storage/app_shared_preferences.dart';
 
+/// Returns the content of the Terms and Conditions file.
+/// 
+/// If this operation is unsuccessful, an error message is returned.
 Future<String> readTermsAndConditions() async {
   try {
     return await rootBundle.loadString('assets/text/TermsAndConditions.md');

@@ -4,6 +4,7 @@ import 'package:tuple/tuple.dart';
 
 import 'course.dart';
 
+/// Stores information about the user's profile.
 class Profile {
   final String name;
   final String email;
@@ -20,6 +21,7 @@ class Profile {
     this.feesBalance = '',
     this.feesLimit = ''});
 
+  /// Creates a new instance from a JSON object.
   static Profile fromResponse(dynamic response) {
     final responseBody = json.decode(response.body);
     final List<Course> courses = <Course>[];
@@ -32,6 +34,8 @@ class Profile {
         courses: courses);
   }
 
+  /// Returns a list with two tuples: the first tuple contains the user's name
+  /// and the other one contains the user's email.
   List<Tuple2<String, String>> keymapValues() {
     return [
       Tuple2('name', this.name),

@@ -8,6 +8,7 @@ class BugReportPageView extends StatefulWidget {
   State<StatefulWidget> createState() => BugReportPageViewState();
 }
 
+/// Manages the 'Bugs and sugestions' section of the app.
 class BugReportPageViewState extends SecondaryPageViewState {
 
   @override

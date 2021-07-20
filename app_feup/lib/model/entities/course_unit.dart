@@ -1,3 +1,4 @@
+/// Stores information about a course unit.
 class CourseUnit {
   int id;
   String code;
@@ -29,6 +30,7 @@ class CourseUnit {
   this.result,
   this.ects});
 
+  /// Creates a new instance from a JSON object.
   static CourseUnit fromJson(dynamic data) {
     return CourseUnit(
       id: data['ucurr_id'],

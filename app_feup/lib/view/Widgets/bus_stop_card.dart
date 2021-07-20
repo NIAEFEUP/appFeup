@@ -11,6 +11,7 @@ import 'package:uni/view/Widgets/row_container.dart';
 
 import 'generic_card.dart';
 
+/// Manages the bus stops card displayed on the user's personal area
 class BusStopCard extends GenericCard {
   BusStopCard.fromEditingInformation(
       Key key, bool editingMode, Function onDelete)
@@ -36,6 +37,7 @@ class BusStopCard extends GenericCard {
             getCardContent(context, trips.item1, trips.item2, trips.item3));
   }
 
+  /// Returns a widget with the bus stop card final content
   Widget getCardContent(BuildContext context, Map<String, List<Trip>> trips,
       Map<String, BusStopData> stopConfig, busStopStatus) {
     switch (busStopStatus) {
@@ -94,6 +96,7 @@ class BusStopCard extends GenericCard {
     }
   }
 
+  /// Returns a widget for the title of the bus stops card
   Widget getCardTitle(context) {
     return Row(
       children: <Widget>[
@@ -107,6 +110,7 @@ class BusStopCard extends GenericCard {
     );
   }
 
+  /// Returns a widget for all the bus stops info
   Widget getBusStopsInfo(context, trips, stopConfig) {
     if (trips.length >= 1) {
       return Container(
@@ -122,6 +126,7 @@ class BusStopCard extends GenericCard {
     }
   }
 
+  /// Returns a list of widgets for each bus stop info that exists
   List<Widget> getEachBusStopInfo(context, trips, stopConfig) {
     final List<Widget> rows = <Widget>[];
 

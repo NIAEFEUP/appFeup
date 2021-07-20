@@ -9,6 +9,7 @@ import 'entities/lecture.dart';
 
 enum RequestStatus { none, busy, failed, successful }
 
+///
 class AppState {
   Map content = Map<String, dynamic>();
 
