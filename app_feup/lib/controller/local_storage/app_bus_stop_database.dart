@@ -15,7 +15,6 @@ class AppBusStopDatabase extends AppDatabase {
           'CREATE TABLE busstops(stopCode TEXT, busCode TEXT)',
           'CREATE TABLE favoritestops(stopCode TEXT, favorited TEXT)'
         ]);
-
   /// Returns a map containing all the data stored in this database.
   /// 
   /// *Note:*

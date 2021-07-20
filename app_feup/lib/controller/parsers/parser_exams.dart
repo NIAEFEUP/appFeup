@@ -9,16 +9,6 @@ import 'dart:async';
 /// This class `ParserExams` contains methods to enable the user to parse
 /// exams information 
 class ParserExams {
-
-  final types = {
-    'Especial de Conclusão': 'EC',
-    'Port.Est.Especiais': 'EE',
-    'Mini-testes': 'MT',
-    'Normal': 'EN',
-    'Recurso': 'ER'
-  };
-
-
   /// Returns the abbreviature of the exam season.
   ///
   /// If an abbreviature doesn't exist, an '?' is returned.

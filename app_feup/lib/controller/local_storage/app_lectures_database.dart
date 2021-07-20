@@ -65,7 +65,6 @@ class AppLecturesDatabase extends AppDatabase {
     }
   }
 
-
   /// Deletes all of the data stored in this database.
   Future<void> deleteLectures() async {
     // Get a reference to the database
