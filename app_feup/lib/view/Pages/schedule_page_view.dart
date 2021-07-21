@@ -111,7 +111,12 @@ class SchedulePageView extends StatelessWidget {
       content: aggLectures[day],
       contentChecker: aggLectures[day].isNotEmpty,
       onNullContent:
-          Center(child: Text('Não possui aulas à ' + daysOfTheWeek[day] + '.')),
+          //Center(child: Text('Não possui aulas à ' + daysOfTheWeek[day] + '.')),
+        FloatingActionButton(
+          onPressed: () {},
+          child: Text('click'),
+          backgroundColor: Colors.red[600],
+        )
     );
   }
 
