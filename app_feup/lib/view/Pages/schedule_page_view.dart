@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:uni/view/Widgets/page_title.dart';
 import 'package:uni/view/Widgets/request_dependent_widget_builder.dart';
 import 'package:uni/view/Widgets/schedule_slot.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SchedulePageView extends StatelessWidget {
   SchedulePageView(
@@ -104,7 +105,50 @@ class SchedulePageView extends StatelessWidget {
       content: aggLectures[day],
       contentChecker: aggLectures[day].isNotEmpty,
       onNullContent:
-          Center(child: Text('Não possui aulas à ' + daysOfTheWeek[day] + '.')),
+          //Center(child: Text('Não possui aulas à ' + daysOfTheWeek[day] + '.')),
+      Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          IconButton(
+            icon: Icon(Icons.open_in_browser),
+            tooltip: 'Abrir página da UC no browser',
+            onPressed: () => _launchURL,
+          ),
+          Text('uc page')
+        ],
+      )
     );
+  }
+
+  Widget createSubjectButton(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        IconButton(
+          icon: Icon(Icons.open_in_browser),
+          tooltip: 'Abrir página da UC no browser',
+          onPressed: () => _launchURL,
+        ),
+        Text('uc page')
+      ],
+    );
+  }
+
+  String toUcLink(int occurrId) {
+    return 'https://sigarra.up.pt/feup/pt/UCURR_GERAL.FICHA_UC_VIEW?pv_ocorrencia_id='
+        +
+        (occurrId).toString();
+  }
+
+  _launchURL() async {
+    //courseExam.subject == uc.abbreviation
+    //final int occurId = lecture.subject
+    final int occurId = 459465;
+    final String url = toUcLink(occurId);
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
