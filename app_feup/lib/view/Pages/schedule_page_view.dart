@@ -112,11 +112,17 @@ class SchedulePageView extends StatelessWidget {
       contentChecker: aggLectures[day].isNotEmpty,
       onNullContent:
           //Center(child: Text('Não possui aulas à ' + daysOfTheWeek[day] + '.')),
-        FloatingActionButton(
-          onPressed: () {},
-          child: Text('click'),
-          backgroundColor: Colors.red[600],
-        )
+      Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          IconButton(
+            icon: Icon(Icons.open_in_browser),
+            tooltip: 'Abrir página da UC no browser',
+            onPressed: () => _launchURL,
+          ),
+          Text('uc page')
+        ],
+      )
     );
   }
 

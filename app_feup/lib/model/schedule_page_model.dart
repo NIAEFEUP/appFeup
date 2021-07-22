@@ -30,12 +30,14 @@ class _SchedulePageState extends SecondaryPageViewState
 
   List<List<Lecture>> _groupLecturesByDay(schedule) {
     final aggLectures = <List<Lecture>>[];
+    final Lecture lec = Lecture('test', 'TP', 0, 36000, 2, 'B240', 'MT', '1MIEIC04' );
 
     for (int i = 0; i < daysOfTheWeek.length; i++) {
       final List<Lecture> lectures = <Lecture>[];
       for (int j = 0; j < schedule.length; j++) {
         if (schedule[j].day == i) lectures.add(schedule[j]);
       }
+      lectures.add(lec);
       aggLectures.add(lectures);
     }
     return aggLectures;
